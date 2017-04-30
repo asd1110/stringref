@@ -1,0 +1,159 @@
+// findOriginalFirstAndSum
+
+
+class UserMainCode
+{
+
+    public static int output1;
+    public static int output2;
+	    
+		
+    public static void findOriginalFirstAndSum(int[] input1){
+        //Write code here
+   
+      int count=0;
+      
+      for(int j=input1.length-2;j>-1;j--)
+      {
+        input1[j]=input1[j+1]-input1[j];
+      }
+      for(int x=0;x<input1.length;x++)
+      {
+        count=count+input1[x];
+      }
+      output1=input1[0];
+      output2=count;
+}
+    }
+
+
+
+// sum of least occuring digit :
+
+int n=input1.size();
+
+   	 int a[]=new int[n];
+   	 int d=0;
+   	 Iterator i=input1.iterator();
+   	 while(i.hasNext())
+   	 {
+   		 a[d++]=(Integer) i.next();
+   	 }
+   	 int count=999999;
+   	 int x[]=new int[10];
+   	 for(int j=0;j<a.length;j++)
+   	 {
+   		 if(a[j]<0)
+   		 {
+   			 a[j]=a[j]*-1;
+   		 }
+   		 if(a[j]==0)
+   		 {
+   			 x[0]++;
+   		 }
+   		 else
+   		 {
+   			 int g=a[j];
+   			 while(g!=0)
+   			 {
+   				 x[g%10]++;
+   				 g=g/10;
+   			 }
+   		 }
+   	 }
+   	 int num=0;
+   	 for(int j=0;j<10;j++)
+   	 {
+   		 if(x[j]!=0)
+   		 {
+   		 if(x[j]<count)
+   		 {
+   			 count=x[j];
+   		 }}
+   	 }
+   	 for(int j=0;j<10;j++)
+   	 {
+   		 
+   		 if(x[j]==count)
+   		 {
+   			 num=num+j;
+   		 }
+   	 }
+   	 return (num);
+
+
+// String sum Count :
+
+input1=input1.toLowerCase();
+   	 String s[]=input1.split(" ");
+   	 String z="";
+   	 for(int i=0;i<s.length;i++)
+   	 {
+   		 int sum=0;
+   		 String a=s[i];
+   		 int n=a.length();
+   		 int d=0;
+   		 for(int j=0;j<n/2;j++)
+   		 {
+   			 d=(a.charAt(j)-96)-(a.charAt(n-j-1)-96);
+   			 if(d<0)
+   				 d=d*-1;
+   			 sum=sum+d;
+   		 }
+   		 if(n%2!=0)
+   		 {
+   			 d=(a.charAt(n/2)-96);
+   			 sum=sum+d;
+   		 }
+   		 z=z+sum;
+   	 }
+    	
+            return z;
+
+
+
+// String Distance Replacement :
+
+      	 input1=input1.toLowerCase();
+   	 String[] s=input1.split(" ");
+   	 String w="";
+   	 for(int i=0;i<s.length;i++)
+   	 {
+   		 String h="";
+   		 String a=s[i];
+   		 
+   		 for(int j=0;j<a.length()-1;j++)
+   		 {
+   			 int x=a.charAt(j);
+   			 h=h+a.charAt(j);
+   			 String z="";
+   			 if((x>=97)&&(x<=122))
+   			 {
+   				 int y=a.charAt(j)+a.charAt(j+1)-96-96;
+   				 if(y>26)
+   				 {
+   					 if(y%26==0)
+   					 {
+   						 h=h+0;    
+   					 }
+   					 else
+   					 {
+   						 int d=y%26+96;
+   						 char v=(char) d;
+   						 h=h+v;    
+   					 }
+   				 }
+   				 else
+   				 {
+   					 int f=y+96;
+   					 char v=(char) f;
+   					 h=h+v;
+   				 }}
+   		 }
+   		 h=h+a.charAt(a.length()-1);
+   		 w=w+h;
+   		 if(i<s.length-1)
+   			 w=w+" ";
+   	 }
+   	 return w;
+
